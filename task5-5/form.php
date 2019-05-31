@@ -72,15 +72,18 @@
 			
 		}
 		
-		
+		//TODO: read from config.ini
 		$q_name=$_GET['name'];
+		$q_name2=$_GET['name2'];
 		$q_surn=$_GET['surn'];
 		$q_email=$_GET['email'];
+		$q_how=$_GET['howFound'];
+		$q_about=$_GET['aboutSelf'];
+		$q_comments=$_GET['comments'];
 		$query = "INSERT INTO openway.applications 
-					(appl_name, appl_surn, appl_email)
-					VALUES ('$q_name', '$q_surn', '$q_email');";
+					(appl_name, appl_name2, appl_surn, appl_email, appl_how, appl_about, appl_comment)
+					VALUES ('$q_name', '$q_name2', '$q_surn', '$q_how', '$q_email', '$q_about', '$q_comments');";
 		echo($query);
-		//TODO: read from config.ini
 		$db_host = 'localhost';
 		$db_user = 'root';
 		$db_pwd = '';
