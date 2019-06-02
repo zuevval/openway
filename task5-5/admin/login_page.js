@@ -3,7 +3,7 @@ function main () {
 	check=login_check();
       if (check!=-1) {
             window.alert("You have already logged in");
-            window.location.replace("admin.html");
+            window.location.replace("admin.php");
       }
 	butt1.onclick = function(){
 		var login=document.getElementById('login').value,

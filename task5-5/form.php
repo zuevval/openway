@@ -53,7 +53,7 @@
 		$formFilled = false;
 		$obligatoryFilled = true;
 		$ObligatoryFields = array('name', 'surn');
-		$auxiliaryFields = array('name2', 'aboutSelf', 'comments');
+		$auxiliaryFields = array('name2', 'aboutSelf', 'comments', 'email');
 		foreach($ObligatoryFields as $field){
 			$formFilled |= isset($_GET[$field]);
 			$obligatoryFilled &= isset($_GET[$field]);
@@ -72,7 +72,6 @@
 			
 		}
 		
-		//TODO: read from config.ini
 		$q_name=$_GET['name'];
 		$q_name2=$_GET['name2'];
 		$q_surn=$_GET['surn'];
@@ -82,8 +81,9 @@
 		$q_comments=$_GET['comments'];
 		$query = "INSERT INTO openway.applications 
 					(appl_name, appl_name2, appl_surn, appl_email, appl_how, appl_about, appl_comment)
-					VALUES ('$q_name', '$q_name2', '$q_surn', '$q_how', '$q_email', '$q_about', '$q_comments');";
-		echo($query);
+					VALUES ('$q_name', '$q_name2', '$q_surn', '$q_email', '$q_how', '$q_about', '$q_comments');";
+					
+		//TODO: read from config.ini
 		$db_host = 'localhost';
 		$db_user = 'root';
 		$db_pwd = '';

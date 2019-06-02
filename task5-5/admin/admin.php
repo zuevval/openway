@@ -6,6 +6,8 @@
 	<meta charset = "UTF-8">
 	<link rel="shortcut icon" type="image/x-icon" href="https://static1.squarespace.com/static/55473fe6e4b079a47a7498d1/t/5b0821942b6a284718c96755/favicon.ico">
 	<title>OpenWay:admin</title>
+	<script src="functions.js"></script>
+	<script src="admin-page.js"></script>
 </head>
 
 <body>
@@ -20,5 +22,23 @@
 			<td><b>about applicant</td>
 			<td><b>comments</td>
 		</tr>
+		<?php
+			$mysqli = new mysqli("localhost", "root", "", "openway");
+			$query = "SELECT *
+				FROM applications
+				ORDER BY appl_surn, appl_name, appl_name2";
+			
+			$result = $mysqli->query($query);
+			$columns = ["appl_name", "appl_name2", "appl_surn", "appl_email", "appl_how", "appl_about", "appl_comment"];
+			 
+			while ($row = $result->fetch_assoc()) {
+				echo "<tr>";
+				foreach ($columns as $col)
+					echo "<td>$row[$col] </td>";
+				echo "</tr>";
+			}
+			$result->free();
+			$mysqli->close();
+		?>
 	</table>
 </body>

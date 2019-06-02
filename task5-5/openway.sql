@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3308
--- Время создания: Май 31 2019 г., 21:23
+-- Время создания: Июн 02 2019 г., 20:59
 -- Версия сервера: 10.3.13-MariaDB
 -- Версия PHP: 7.1.22
 
@@ -44,11 +44,12 @@ CREATE TABLE `applications` (
 --
 
 INSERT INTO `applications` (`appl_id`, `appl_name`, `appl_name2`, `appl_surn`, `appl_email`, `appl_how`, `appl_about`, `appl_comment`) VALUES
-(1, 'jane', NULL, 'sss', 'em@il.com', NULL, NULL, NULL),
-(8, 'aaa', NULL, 'ddd', 'www@a.com', NULL, NULL, NULL),
+(1, 'Jane', NULL, 'Doe', 'jane.doe@example.com', NULL, NULL, NULL),
+(8, 'Igor', 'Vasilyevich', 'Kurchatov', 'nuclear.king@gmail.com', NULL, NULL, NULL),
 (9, 'Valerii', NULL, 'Zuev', 'valera.zuev.zva@gmail.com', NULL, NULL, NULL),
-(11, 'Alex', 'A.', 'Burkov', 'not sure', 'bf@mail.ru', 'Im a human', ''),
-(12, 'Alex', 'F', 'Putikov', 'difficult question', 'oput@mail.ru', 'Im a man', ')');
+(11, 'Alex', 'A.', 'Burkov', 'bf@mail.ru', 'not sure', 'Im a human', ''),
+(12, 'Alex', 'F', 'Putikov', 'oput@mail.ru', 'difficult question', 'Im a man', ')'),
+(13, 'Susanna', '', 'Martin', 'smart@gmail.com', 'I have been told in my colledge', 'Ohh', 'No comments');
 
 -- --------------------------------------------------------
 
@@ -94,7 +95,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `applications`
 --
 ALTER TABLE `applications`
-  MODIFY `appl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `appl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
