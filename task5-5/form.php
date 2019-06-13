@@ -82,13 +82,9 @@
 		$query = "INSERT INTO openway.applications 
 					(appl_name, appl_name2, appl_surn, appl_email, appl_how, appl_about, appl_comment)
 					VALUES ('$q_name', '$q_name2', '$q_surn', '$q_email', '$q_how', '$q_about', '$q_comments');";
-					
-		//TODO: read from config.ini
-		$db_host = 'localhost';
-		$db_user = 'root';
-		$db_pwd = '';
-		$database = 'openway';
-		$mysqli = new mysqli($db_host, $db_user, $db_pwd, $database);
+				
+		$ini = parse_ini_file('config_db.ini');
+		$mysqli = new mysqli($ini['db_host'], $ini['db_user'], $ini['db_pwd'], $ini['db_name']);
 		$result=$mysqli->query($query);
 		$mysqli->close();
 		if($result){

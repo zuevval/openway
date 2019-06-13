@@ -1,15 +1,12 @@
 <?php
 //requires php 5.x
-$db_host = 'localhost';
-$db_user = 'root';
-$db_pwd = '';
-$database = 'openway';
-
-$mysqli = new mysqli($db_host, $db_user, $db_pwd, $database);
+$ini = parse_ini_file('../config_db.ini');
+$mysqli = new mysqli($ini['db_host'], $ini['db_user'], $ini['db_pwd'], $ini['db_name']);
 $pass=$_COOKIE["pass"];
 $login=$_COOKIE["login"];
 $table='users';
 $usr_res = $mysqli->query("SELECT * FROM {$table} WHERE login='$login' AND pass='$pass'");
+$mysqli->close();
 if (!$usr_res) {
     die("-1");
 }

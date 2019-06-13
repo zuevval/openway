@@ -23,7 +23,8 @@
 			<td><b>comments</td>
 		</tr>
 		<?php
-			$mysqli = new mysqli("localhost", "root", "", "openway");
+			$ini = parse_ini_file('../config_db.ini');
+			$mysqli = new mysqli($ini['db_host'], $ini['db_user'], $ini['db_pwd'], $ini['db_name']);
 			$query = "SELECT *
 				FROM applications
 				ORDER BY appl_surn, appl_name, appl_name2";
