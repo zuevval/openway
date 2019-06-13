@@ -71,17 +71,22 @@
 			die();
 			
 		}
+		$input = [
+			"name" => $_GET['name'],	
+			"name2" => $_GET['name2'],	
+			"surn" => $_GET['surn'],	
+			"email" => $_GET['email'],
+			"how" => $_GET['howFound'],
+			"about" => $_GET['aboutSelf'],
+			"comments" => $_GET['comments'],
+		];
+		foreach ($input as $key=>$col){
+			$input[$key] = str_replace("'", "''", $col); // for SQL
+		}
 		
-		$q_name=$_GET['name'];
-		$q_name2=$_GET['name2'];
-		$q_surn=$_GET['surn'];
-		$q_email=$_GET['email'];
-		$q_how=$_GET['howFound'];
-		$q_about=$_GET['aboutSelf'];
-		$q_comments=$_GET['comments'];
 		$query = "INSERT INTO openway.applications 
 					(appl_name, appl_name2, appl_surn, appl_email, appl_how, appl_about, appl_comment)
-					VALUES ('$q_name', '$q_name2', '$q_surn', '$q_email', '$q_how', '$q_about', '$q_comments');";
+					VALUES ('${input['name']}', '${input['name2']}', '${input['surn']}', '${input['email']}', '${input['how']}', '${input['about']}', '${input['comments']}');";
 				
 		$ini = parse_ini_file('config_db.ini');
 		$mysqli = new mysqli($ini['db_host'], $ini['db_user'], $ini['db_pwd'], $ini['db_name']);
