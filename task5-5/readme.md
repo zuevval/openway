@@ -12,7 +12,5 @@ Setting up:
 1. Create a new database 'openway'
 1. import tables from SQL dump
 1. place 'openway' folder where all your sites are emulated (e. g. 'domains/' in OpenServer or 'htdocs' in XAMPP)
+1. Write your database parameters in `task5-5/config_db.ini` file
 1. launch HTTP-server and go to openway/ in your browser
-
-*DB settings: assuming available host=localhost with user 'root', password '' (empty)*<br>
-All DB settings in config file - coming soon
